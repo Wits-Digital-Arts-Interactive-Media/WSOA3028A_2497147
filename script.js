@@ -47,3 +47,18 @@ window.onmouseup = () =>{
 }
 
 //Slider incomplete because styling is incomplete
+
+
+function updatePreview(sectionId, description) {
+    // Get the section element
+    const section = document.getElementById(sectionId);
+
+    // Get the article element within the section
+    const article = section.querySelector('article');
+
+    // Get the h3 element within the article (assuming it's the title)
+    const title = article.querySelector('h3');
+
+    // Update the title text
+    title.textContent = description;
+}
