@@ -48,17 +48,35 @@ window.onmouseup = () =>{
 
 //Slider incomplete because styling is incomplete
 
+//Zoom 
 
-function updatePreview(sectionId, description) {
-    // Get the section element
-    const section = document.getElementById(sectionId);
+document.addEventListener('DOMContentLoaded', function() {
+    new Zooming({
+        // options here
+    }).listen('.Image');
+});
 
-    // Get the article element within the section
-    const article = section.querySelector('article');
 
-    // Get the h3 element within the article (assuming it's the title)
-    const title = article.querySelector('h3');
 
-    // Update the title text
-    title.textContent = description;
+//Display active page
+
+const currentPage = window.location.pathname;
+
+
+const buttonIds = ['profileButton', 'blogButton', 'essayButton', 'designButton', 'portfolioButton', 'indexButton'];
+
+
+function highlightActiveButton() {
+    
+    buttonIds.forEach(buttonId => {
+        const button = document.getElementById(buttonId);
+        
+        button.classList.remove('active');
+        
+        if (currentPage.includes('/' + buttonId.toLowerCase().replace('button', ''))) {
+            button.classList.add('active');
+        }
+    });
 }
+
+highlightActiveButton();
