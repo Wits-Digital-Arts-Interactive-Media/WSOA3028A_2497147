@@ -62,21 +62,34 @@ document.addEventListener('DOMContentLoaded', function() {
 
 const currentPage = window.location.pathname;
 
-
 const buttonIds = ['profileButton', 'blogButton', 'essayButton', 'designButton', 'portfolioButton', 'indexButton'];
 
-
 function highlightActiveButton() {
-    
     buttonIds.forEach(buttonId => {
         const button = document.getElementById(buttonId);
-        
-        button.classList.remove('active');
-        
-        if (currentPage.includes('/' + buttonId.toLowerCase().replace('button', ''))) {
-            button.classList.add('active');
+
+       
+        if (button) {
+            button.classList.remove('active');
+            
+         
+            const pageSegment = buttonId.toLowerCase().replace('button', '');
+            
+           
+            if (currentPage.includes(pageSegment) || (currentPage === '/' && buttonId === 'indexButton')) {
+                button.classList.add('active');
+            }
         }
     });
 }
 
 highlightActiveButton();
+
+
+//scrolltop button 
+function scrollToTop() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+}
