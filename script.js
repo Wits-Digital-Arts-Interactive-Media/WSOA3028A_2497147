@@ -18,45 +18,28 @@ function goToPage(page) {
     window.location.href = page;
 }
 
-//Function to track slide movement on portfolio
-const track = document.getElementById("image-track");
 
 
-window.onmousedown = e => {
-    track.dataset.e.clientX;
-}
-
-window.onmousemove = e =>{
-
-if(track.dataset.mouseDownAt ==="0")return;
-
-const mouseDelta = parseFloat(track.dataset.mouseDownAt) - e.clientX,
-      maxDelta = window.innderWidth/ 2;
-
-const percentage = (mouseDelta /maxDelta)* 100;
-        nextPercentage = parseFloat(track.dataset.prevPercentage)+ percentage;
-track.dataset.prevPercentage = nextPercentage;
-
-track.style.transform = `translate(${percentage}%, -50)`;
-}
-
-window.onmouseup = () =>{
-
-    track.daataset.mouseDownAt ="0"; 
-    
-}
-
-//Slider incomplete because styling is incomplete
-
-//Zoom 
-
+//smooth scroll for navigation blogs 
 document.addEventListener('DOMContentLoaded', function() {
-    new Zooming({
-        // options here
-    }).listen('.Image');
+    // Select all navigation buttons
+    const navButtons = document.querySelectorAll('.toc a');
+
+    // Add event listener to each navigation button
+    navButtons.forEach(navButton => {
+        navButton.addEventListener('click', function(event) {
+            // Prevent the default behavior of navigating to a new page
+            event.preventDefault();
+
+            // Get the target section's ID from the button's href attribute
+            const targetId = this.getAttribute('href').substring(1);
+            const targetSection = document.getElementById(targetId);
+
+            // Scroll to the target section smoothly
+            targetSection.scrollIntoView({ behavior: 'smooth' });
+        });
+    });
 });
-
-
 
 //Display active page
 
@@ -87,9 +70,50 @@ highlightActiveButton();
 
 
 //scrolltop button 
-function scrollToTop() {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
+document.addEventListener('DOMContentLoaded', () => {
+    const scrollToTopBtn = document.createElement('div');
+    scrollToTopBtn.className = 'scrollTop';
+    scrollToTopBtn.textContent = 'Top';
+    document.body.appendChild(scrollToTopBtn);
+
+    scrollToTopBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     });
-}
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 100) {
+            scrollToTopBtn.classList.add('visible');
+        } else {
+            scrollToTopBtn.classList.remove('visible');
+        }
+    });
+});
+
+
+//image track
+document.addEventListener('DOMContentLoaded', function () {
+    const slider = document.querySelector('.slider');
+    let intervalId;
+
+    function autoPlay() {
+        intervalId = setInterval(() => {
+            slider.scrollLeft += slider.offsetWidth; // Scroll to the next image
+            if (slider.scrollLeft >= (slider.scrollWidth - slider.offsetWidth)) {
+                // If at the end, scroll back to the beginning
+                slider.scrollLeft = 0;
+            }
+        }, 5000); 
+    }
+
+    autoPlay(); // Start auto-play when the page loads
+
+    // Pause auto-play when the slider is hovered over
+    slider.addEventListener('mouseenter', () => {
+        clearInterval(intervalId);
+    });
+
+    // Resume auto-play when the slider is not being hovered over
+    slider.addEventListener('mouseleave', () => {
+        autoPlay();
+    });
+});
