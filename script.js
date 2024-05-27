@@ -18,24 +18,54 @@ function goToPage(page) {
     window.location.href = page;
 }
 
+//CardButton Navigation
+document.addEventListener('DOMContentLoaded', function() {
+    // Function to navigate to a page
+    function goToPage(page) {
+        window.location.href = page;
+    }
 
+    // Select all navigation buttons
+    const navButtons = document.querySelectorAll('nav button');
+
+    // Add event listener to each navigation button
+    navButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const targetId = this.id.replace('Button', '');
+            const targetPage = (targetId === 'index') ? 'index.html' : `${targetId}.html`;
+            goToPage(targetPage);
+        });
+    });
+
+    // Select all 'More' buttons inside the card sections
+    const cardButtons = document.querySelectorAll('.card-button');
+
+    // Add event listener to each card button
+    cardButtons.forEach(button => {
+        button.addEventListener('click', function(event) {
+            event.preventDefault(); 
+            const targetPage = this.getAttribute('data-page'); 
+            goToPage(targetPage);
+        });
+    });
+});
 
 //smooth scroll for navigation blogs 
 document.addEventListener('DOMContentLoaded', function() {
-    // Select all navigation buttons
+ 
     const navButtons = document.querySelectorAll('.toc a');
 
-    // Add event listener to each navigation button
+    
     navButtons.forEach(navButton => {
         navButton.addEventListener('click', function(event) {
-            // Prevent the default behavior of navigating to a new page
+            
             event.preventDefault();
 
-            // Get the target section's ID from the button's href attribute
+            
             const targetId = this.getAttribute('href').substring(1);
             const targetSection = document.getElementById(targetId);
 
-            // Scroll to the target section smoothly
+           
             targetSection.scrollIntoView({ behavior: 'smooth' });
         });
     });
