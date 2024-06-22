@@ -6,19 +6,13 @@
     <title>Homepage</title>
     <meta name="description" content="Welcome to the portfolio website of Mthokozisi Kubheka, showcasing blogs, essays, designs, and portfolio projects.">
     <meta name="keywords" content="Mthokozisi Kubheka, personal website, blogs, essays, designs, portfolio">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
     <header>
-        <nav>
-            <ul>
-                <li><button id="profileButton"></i> Profile</button></li>
-                <li><button id="blogButton"></i> Blogs</button></li>
-                <li><button id="essayButton"></i> Essay</button></li>
-                <li><button id="designButton"></i> Design</button></li>
-                <li><button id="portfolioButton"></i> Portfolio</button></li>
-                <li><button id="indexButton"></i> Home</button></li>
-            </ul>
+        <nav>         
+                    <ul id="nav-menu">
+                    </ul>    
         </nav>
     </header>
 
@@ -33,24 +27,28 @@
         </section>
 
         <section class="card-container">
+            
             <section class="card h-card">
                 <h3 class="p-name">About Me</h3>
-                <img src="Images/ProfileSelf.jpg" alt="Profile Picture" class="card-image u-photo">
+                <img src="/images/ProfileSelf.jpg" alt="Profile Picture" class="card-image u-photo">
                 <p class="p-note">Learn more about me, my background, and my interests.</p>
-                <button class="card-button" data-page="profile.html">More</button>
+                <button class="card-button" data-page="/pages/profile/profile.html">More</button>
             </section>
+
             <section class="card h-card">
                 <h3 class="p-name">Design</h3>
-                <img src="Images/DigitalDesignIMG.jpg" alt="Design Image" class="card-image u-photo">
+                <img src="/images/DigitalDesignIMG.jpg" alt="Design Image" class="card-image u-photo">
                 <p class="p-note">Explore the design and style theory chosen on the site.</p>
-                <button class="card-button" data-page="design.html">More</button>
+                <button class="card-button" data-page="/pages/design/design.html">More</button>
             </section>
+
             <section class="card h-card">
                 <h3 class="p-name">Essay</h3>
-                <img src="Images/EssayCardImg.jpg" alt="Essay Image" class="card-image u-photo">
+                <img src="/images/EssayCardImg.jpg" alt="Essay Image" class="card-image u-photo">
                 <p class="p-note">Read essays and articles I've written over the semester.</p>
-                <button class="card-button" data-page="essay.html">More</button>
+                <button class="card-button" data-page="/pages/essay/essay.html">More</button>
             </section>
+
         </section>
     </main>
 
@@ -58,6 +56,6 @@
         &copy; 2024 Mthokozisi Kubheka
     </footer>
 
-    <script src="script.js"></script>
+    <script src="/js/script.js"></script>
 </body>
 </html>

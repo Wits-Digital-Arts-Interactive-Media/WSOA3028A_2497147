@@ -1,54 +1,43 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // Select all buttons inside the navigation
-    const buttons = document.querySelectorAll('nav button');
+//Navbar navigation
+const menuItems = [
+    { name: 'Profile', href: '/pages/profile/profile.html', id: 'profileButton' },
+    { name: 'Blogs', href: '/pages/blogs/blog.html', id: 'blogButton' },
+    { name: 'Essay', href: '/pages/essay/essay.html', id: 'essayButton' },
+    { name: 'Design', href: '/pages/design/design.html', id: 'designButton' },
+    { name: 'Portfolio', href: '/pages/portfolio/portfolio.html', id: 'portfolioButton' },
+    { name: 'Home', href: '/index.html', id: 'indexButton' },
+  ];
+  
+  
+  const navMenu = document.getElementById('nav-menu'); // Replace 'nav-menu' with the actual id of your parent element
+  
 
-    // Add event listener to each button
-    buttons.forEach(button => {
-        button.addEventListener('click', function() {
-            const targetId = this.id.replace('Button', ''); 
-            const targetPage = (targetId === 'index') ? 'index.html' : `${targetId}.html`; 
-            
-            goToPage(targetPage); 
-        });
-    });
-});
+  menuItems.forEach(item => {
+    
+    const li = document.createElement('li');
+    const a = document.createElement('a');
+    a.href = item.href;
+    a.id = item.id;
+    a.textContent = item.name;
+  
+    li.appendChild(a);
+    navMenu.appendChild(li);
+  });
 
-// Function to navigate to a page
-function goToPage(page) {
+// Select all the buttons
+const cardButtons = document.querySelectorAll('.card-button');
+
+// Add a 'click' event listener to each button
+cardButtons.forEach(button => {
+  button.addEventListener('click', (event) => {
+    // Get the value of the 'data-page' attribute
+    const page = event.target.getAttribute('data-page');
+    
+    // Navigate to the page
     window.location.href = page;
-}
-
-//CardButton Navigation
-document.addEventListener('DOMContentLoaded', function() {
-    // Function to navigate to a page
-    function goToPage(page) {
-        window.location.href = page;
-    }
-
-    // Select all navigation buttons
-    const navButtons = document.querySelectorAll('nav button');
-
-    // Add event listener to each navigation button
-    navButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            const targetId = this.id.replace('Button', '');
-            const targetPage = (targetId === 'index') ? 'index.html' : `${targetId}.html`;
-            goToPage(targetPage);
-        });
-    });
-
-    // Select all 'More' buttons inside the card sections
-    const cardButtons = document.querySelectorAll('.card-button');
-
-    // Add event listener to each card button
-    cardButtons.forEach(button => {
-        button.addEventListener('click', function(event) {
-            event.preventDefault(); 
-            const targetPage = this.getAttribute('data-page'); 
-            goToPage(targetPage);
-        });
-    });
+  });
 });
+
 
 //smooth scroll for navigation blogs 
 document.addEventListener('DOMContentLoaded', function() {
@@ -98,6 +87,16 @@ function highlightActiveButton() {
 
 highlightActiveButton();
 
+document.addEventListener('DOMContentLoaded', function () {
+    // Get all buttons in the navigation bar
+    const navButtons = document.querySelectorAll('nav ul li button');
+
+    // Remove 'active' class from all buttons
+    navButtons.forEach(button => button.classList.remove('active'));
+
+    // Add 'active' class to the home button
+    document.querySelector('#indexButton').classList.add('active');
+});
 
 //scrolltop button 
 document.addEventListener('DOMContentLoaded', () => {
@@ -123,6 +122,9 @@ document.addEventListener('DOMContentLoaded', () => {
 //image track
 document.addEventListener('DOMContentLoaded', function () {
     const slider = document.querySelector('.slider');
+    let isDown = false;
+    let startX;
+    let scrollLeft;
     let intervalId;
 
     function autoPlay() {
@@ -146,4 +148,32 @@ document.addEventListener('DOMContentLoaded', function () {
     slider.addEventListener('mouseleave', () => {
         autoPlay();
     });
+
+    // Enable dragging
+    slider.addEventListener('mousedown', (e) => {
+        isDown = true;
+        startX = e.pageX - slider.offsetLeft;
+        scrollLeft = slider.scrollLeft;
+    });
+
+    slider.addEventListener('mouseleave', () => {
+        isDown = false;
+    });
+
+    slider.addEventListener('mouseup', () => {
+        isDown = false;
+    });
+
+    slider.addEventListener('mousemove', (e) => {
+        if(!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - slider.offsetLeft;
+        const walk = (x - startX) * 3; //scroll-fast
+        slider.scrollLeft = scrollLeft - walk;
+    });
 });
+
+document.querySelector('h1').addEventListener('click', function() {
+    let essayContent = 'This is the content of Essay2. It is loaded dynamically when the user clicks on the heading.';
+    document.querySelector('.essay2').textContent = essayContent;
+  });
