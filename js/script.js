@@ -1,4 +1,9 @@
+
+
+
 //Navbar navigation
+const baseUrl = '/WSOA3028A_2497147';
+
 const menuItems = [
     { name: 'Profile', href: 'pages/profile/profile.html', id: 'profileButton' },
     { name: 'Blogs', href: 'pages/blogs/blog.html', id: 'blogButton' },
