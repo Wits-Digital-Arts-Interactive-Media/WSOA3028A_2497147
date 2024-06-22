@@ -1,11 +1,11 @@
 //Navbar navigation
 const menuItems = [
-    { name: 'Profile', href: '/pages/profile/profile.html', id: 'profileButton' },
-    { name: 'Blogs', href: '/pages/blogs/blog.html', id: 'blogButton' },
-    { name: 'Essay', href: '/pages/essay/essay.html', id: 'essayButton' },
-    { name: 'Design', href: '/pages/design/design.html', id: 'designButton' },
-    { name: 'Portfolio', href: '/pages/portfolio/portfolio.html', id: 'portfolioButton' },
-    { name: 'Home', href: '/index.html', id: 'indexButton' },
+    { name: 'Profile', href: 'pages/profile/profile.html', id: 'profileButton' },
+    { name: 'Blogs', href: 'pages/blogs/blog.html', id: 'blogButton' },
+    { name: 'Essay', href: 'pages/essay/essay.html', id: 'essayButton' },
+    { name: 'Design', href: 'pages/design/design.html', id: 'designButton' },
+    { name: 'Portfolio', href: 'pages/portfolio/portfolio.html', id: 'portfolioButton' },
+    { name: 'Home', href: 'index.html', id: 'indexButton' },
   ];
   
   
