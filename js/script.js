@@ -5,7 +5,7 @@ const menuItems = [
     { name: 'Essay', href: '/pages/essay/essay.html', id: 'essayButton' },
     { name: 'Design', href: '/pages/design/design.html', id: 'designButton' },
     { name: 'Portfolio', href: '/pages/portfolio/portfolio.html', id: 'portfolioButton' },
-    { name: 'Home', href: 'index.html', id: 'indexButton' },
+    { name: 'Home', href: '/index.html', id: 'indexButton' },
   ];
   
   
