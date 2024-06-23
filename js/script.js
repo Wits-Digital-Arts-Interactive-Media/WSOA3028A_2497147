@@ -119,61 +119,50 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-//image track
-document.addEventListener('DOMContentLoaded', function () {
-    const slider = document.querySelector('.slider');
-    let isDown = false;
-    let startX;
-    let scrollLeft;
-    let intervalId;
-
-    function autoPlay() {
-        intervalId = setInterval(() => {
-            slider.scrollLeft += slider.offsetWidth; // Scroll to the next image
-            if (slider.scrollLeft >= (slider.scrollWidth - slider.offsetWidth)) {
-                // If at the end, scroll back to the beginning
-                slider.scrollLeft = 0;
-            }
-        }, 5000); 
-    }
-
-    autoPlay(); // Start auto-play when the page loads
-
-    // Pause auto-play when the slider is hovered over
-    slider.addEventListener('mouseenter', () => {
-        clearInterval(intervalId);
-    });
-
-    // Resume auto-play when the slider is not being hovered over
-    slider.addEventListener('mouseleave', () => {
-        autoPlay();
-    });
-
-    // Enable dragging
-    slider.addEventListener('mousedown', (e) => {
-        isDown = true;
-        startX = e.pageX - slider.offsetLeft;
-        scrollLeft = slider.scrollLeft;
-    });
-
-    slider.addEventListener('mouseleave', () => {
-        isDown = false;
-    });
-
-    slider.addEventListener('mouseup', () => {
-        isDown = false;
-    });
-
-    slider.addEventListener('mousemove', (e) => {
-        if(!isDown) return;
-        e.preventDefault();
-        const x = e.pageX - slider.offsetLeft;
-        const walk = (x - startX) * 3; //scroll-fast
-        slider.scrollLeft = scrollLeft - walk;
-    });
-});
-
 document.querySelector('h1').addEventListener('click', function() {
     let essayContent = 'This is the content of Essay2. It is loaded dynamically when the user clicks on the heading.';
     document.querySelector('.essay2').textContent = essayContent;
   });
+
+//Image Zoom Function
+  document.addEventListener('DOMContentLoaded', function() {
+    
+    const overlay = document.createElement('div');
+    overlay.className = 'overlay';
+    document.body.appendChild(overlay);
+  
+    function toggleZoom(event) {
+      const img = event.target;
+      img.classList.toggle('zoomed');
+      overlay.style.display = img.classList.contains('zoomed') ? 'block' : 'none';
+    }
+  
+  
+    document.querySelectorAll('img.Image, .wireframe img').forEach(img => {
+      img.addEventListener('click', toggleZoom);
+    });
+  
+   
+    overlay.addEventListener('click', function() {
+      document.querySelectorAll('.zoomed').forEach(img => {
+        img.classList.remove('zoomed');
+      });
+      this.style.display = 'none';
+    });
+  });
+  
+
+  //Portfolio Images
+  function openModal(element) {
+    var img = element.getElementsByTagName('img')[0];
+    var description = element.getElementsByTagName('figcaption')[0].innerText;
+    document.getElementById('modalImage').src = img.src;
+    document.getElementById('imageDescription').innerText = description;
+    document.getElementById('imageModal').style.display = "block";
+  }
+  
+  function closeModal() {
+    document.getElementById('imageModal').style.display = "none";
+  }
+
+  

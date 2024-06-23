@@ -20,41 +20,56 @@
 
 
     <main>
-        <section class="slideshow-container" role="region" aria-label="Image Slideshow">
-            <nav aria-label="Slideshow navigation">
-                <a class="prev" onclick="plusSlides(-1)" aria-label="Previous slide">&#10094;</a>
-                <a class="next" onclick="plusSlides(1)" aria-label="Next slide">&#10095;</a>
-            </nav>
 
-            <section class="mySlides fade" itemscope itemtype="http://schema.org/ImageObject">
-                <figure>
-                    <img src="/images/GT2RS.jpg" style="width:100%" alt="Description of Image 1" itemprop="image">
-                    <figcaption itemprop="description">Description of Image 1</figcaption>
-                </figure>
-            </section>
+        <section>
+            <header>
+                <h1>Portfolio Project</h1>
+                <h3>50c/R50million</h3>
+             </header>
+            
+        </section>
 
-            <section class="mySlides fade" itemscope itemtype="http://schema.org/ImageObject">
-                <figure>
-                    <img src="/images/Chiron.jpg" style="width:100%" alt="Description of Image 2" itemprop="image">
-                    <figcaption itemprop="description">Description of Image 2</figcaption>
-                </figure>
-            </section>
+        <section class="image-gallery">
 
-            <section class="mySlides fade" itemscope itemtype="http://schema.org/ImageObject">
-                <figure>
-                    <img src="/images/Chiron.jpg" style="width:100%" alt="Description of Image 3" itemprop="image">
-                    <figcaption itemprop="description">Description of Image 3</figcaption>
-                </figure>
-            </section>
-        </section> 
+            <article class="gallery-item" onclick="openModal(this)" itemscope itemtype="http://schema.org/ImageObject">
+              <img src="../../images/ZondaCinque.jpg" alt="Description of Image 1" style="width:100%" itemprop="image">
+              <figcaption itemprop="description">1 of 5 Zonda Cinque</figcaption>
+            </article>
+
+            <article class="gallery-item" onclick="openModal(this)" itemscope itemtype="http://schema.org/ImageObject">
+              <img src="../../images/Spectre.jpg" alt="Description of Image 2" style="width:100%" itemprop="image">
+              <figcaption itemprop="description">...</figcaption>
+            </article>
+
+            <article class="gallery-item" onclick="openModal(this)" itemscope itemtype="http://schema.org/ImageObject">
+              <img src="../../images/Chiron.jpg" alt="Description of Image 3" style="width:100%" itemprop="image">
+              <figcaption itemprop="description">$2.8million Bugatti Chiron in the streets of Sandton</figcaption>
+            </article>
+
+            <article class="gallery-item" onclick="openModal(this)" itemscope itemtype="http://schema.org/ImageObject">
+                <img src="../../images/ImolaPagani.jpg" alt="Description of Image 3" style="width:100%" itemprop="image">
+                <figcaption itemprop="description">Another 1 of 5 Pagani, this time in Stellenbosch</figcaption>
+              </article>
+
+        </section>
+          
+
+          
+          <aside id="imageModal" class="modal" role="dialog" aria-labelledby="imageDescription" aria-hidden="true">
+            <button class="close" onclick="closeModal()" aria-label="Close zoomed image view">&times;</button>
+            <img class="modal-content" id="modalImage" alt="">
+            <article id="imageDescription" role="document"></article>
+          </aside>
       
 
-
-
-
+          <article id="Essay">
+            <p>This incomplete project of mine, initially just started off as casual car spotting.
+                While seeing some of the coolest and rarest cars, I couldn't help but notice the 
+                background and settings i was taking these images in. These include some images
+                 I've taken myself, and others i've collected from my social media feed. </p>
+       
+        </article>
     </main>
-
-  
     <footer>
         &copy; 2024 Mthokozisi Kubheka
     </footer>
