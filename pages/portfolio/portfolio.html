@@ -20,31 +20,34 @@
 
 
     <main>
-        
-        <section class="slider-container">
-            <section class="slider-wrapper">
-                <section class="slider">
-                    <figure id="slide-1" class="h-entry">
-                        <img src="Images/GT2RS.jpg" alt="Porsche GT2 RS" class="u-photo" />
-                        <figcaption class="e-content">Porsche GT2 RS at Kyalami Race Track</figcaption>
-                    </figure>
-                    <figure id="slide-2" class="h-entry">
-                        <img src="Images/Chiron.jpg" alt="Bugatti Chiron" class="u-photo" />
-                        <figcaption class="e-content">Bugatti Chiron photographed in Sandhursts</figcaption>
-                    </figure>
-                    <figure id="slide-3" class="h-entry">
-                        <img src="Images/third-image.jpg" alt="Third Image Description" class="u-photo" />
-                        <figcaption class="e-content"></figcaption>
-                    </figure>
-                </section>
-                <nav class="slider-nav">
-                    <a href="#slide-1" aria-label="Porsche GT2 RS"></a>
-                    <a href="#slide-2" aria-label="Bugatti Chiron"></a>
-                    <a href="#slide-3" aria-label="Third Image Description"></a>
-                </nav>
+        <div class="slideshow-container" role="region" aria-label="Image Slideshow">
+            <nav aria-label="Slideshow navigation">
+                <a class="prev" onclick="plusSlides(-1)" aria-label="Previous slide">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)" aria-label="Next slide">&#10095;</a>
+            </nav>
+
+            <section class="mySlides fade" itemscope itemtype="http://schema.org/ImageObject">
+                <figure>
+                    <img src="/images/GT2RS.jpg" style="width:100%" alt="Description of Image 1" itemprop="image">
+                    <figcaption itemprop="description">Description of Image 1</figcaption>
+                </figure>
             </section>
-        </section>
-        
+
+            <section class="mySlides fade" itemscope itemtype="http://schema.org/ImageObject">
+                <figure>
+                    <img src="/images/Chiron.jpg" style="width:100%" alt="Description of Image 2" itemprop="image">
+                    <figcaption itemprop="description">Description of Image 2</figcaption>
+                </figure>
+            </section>
+
+            <section class="mySlides fade" itemscope itemtype="http://schema.org/ImageObject">
+                <figure>
+                    <img src="/images/Chiron.jpg" style="width:100%" alt="Description of Image 3" itemprop="image">
+                    <figcaption itemprop="description">Description of Image 3</figcaption>
+                </figure>
+            </section>
+        </div> 
+      
 
 
 
