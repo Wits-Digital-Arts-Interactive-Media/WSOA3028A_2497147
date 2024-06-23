@@ -1,21 +1,22 @@
+
 //Navbar navigation
 const baseUrl = '/WSOA3028A_2497147';
 
 const menuItems = [
-    { name: 'Profile', href: 'pages/profile/profile.html', id: 'profileButton' },
-    { name: 'Blogs', href: 'pages/blogs/blog.html', id: 'blogButton' },
-    { name: 'Essay', href: 'pages/essay/essay.html', id: 'essayButton' },
-    { name: 'Design', href: 'pages/design/design.html', id: 'designButton' },
-    { name: 'Portfolio', href: 'pages/portfolio/portfolio.html', id: 'portfolioButton' },
-    { name: 'Home', href: 'index.html', id: 'indexButton' },
+    { name: 'Profile', href: `${baseUrl}/pages/profile/profile.html`, id: 'profileButton' },
+    { name: 'Blogs', href: `${baseUrl}/pages/blogs/blog.html`, id: 'blogButton' },
+    { name: 'Essay', href: `${baseUrl}/pages/essay/essay.html`, id: 'essayButton' },
+    { name: 'Design', href: `${baseUrl}/pages/design/design.html`, id: 'designButton' },
+    { name: 'Portfolio', href: `${baseUrl}/pages/portfolio/portfolio.html`, id: 'portfolioButton' },
+    { name: 'Home', href: `${baseUrl}/index.html`, id: 'indexButton' },
 ];
 
 const navMenu = document.getElementById('nav-menu'); // Ensure this ID matches the ID of your navigation menu container in HTML
-
+//
 menuItems.forEach(item => {
     const li = document.createElement('li');
     const a = document.createElement('a');
-    a.href = `${baseUrl}/${item.href}`; // Prefix href with baseUrl
+    a.href = item.href;
     a.id = item.id;
     a.textContent = item.name;
 
