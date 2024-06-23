@@ -101,10 +101,10 @@ button {
 
 
 button.active {
-    background-color: #007bff; /* A different shade to make it stand out */
-    color: white; /* Ensures text is readable against the new background */
-    transform: scale(1.1); /* Slightly larger to indicate it's active */
-    font-weight: bold; /* Optional: Makes the text bold */
+    background-color: #007bff; 
+    color: white; 
+    transform: scale(1.1); 
+    font-weight: bold; 
 }
 
 
@@ -180,7 +180,7 @@ section {
 
 .profile-container {
     display: flex;
-    flex-direction: row; /* Ensure direction is explicitly set for clarity */
+    flex-direction: row; 
     align-items: center;
     max-width: 1200px;
     width: 100%;
@@ -189,7 +189,7 @@ section {
 
 .profile-image-container {
     margin-right: 40px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Add shadow for depth */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
 .profile-image {
@@ -197,11 +197,11 @@ section {
     height: 250px;
     border-radius: 20px;
     object-fit: cover;
-    transition: transform 0.3s; /* Smooth transition for hover effects */
+    transition: transform 0.3s; 
 }
 
 .profile-image:hover {
-    transform: scale(1.05); /* Slight scale on hover */
+    transform: scale(1.05);
 }
 
 .sr-only {
@@ -261,7 +261,7 @@ p {
     }
 
     .external-links a {
-        font-size: 30px; /* Slightly smaller icons for smaller screens */
+        font-size: 30px; 
     }
 }
 
@@ -275,7 +275,7 @@ p {
     }
 
     .external-links a {
-        font-size: 24px; /* Further reduce icon size for very small screens */
+        font-size: 24px; 
     }
 }
 /* blog section styling */
@@ -391,7 +391,7 @@ p {
 #Essay > section .essay2 h1 {
     font-size: 32px;
     margin-bottom: 16px;
-    color: #ff0000; /* Accent color for headers */
+    color: #ff0000; 
     text-align: center;
 }
 
@@ -400,7 +400,7 @@ p {
     font-size: 16px;
     line-height: 1.5;
     margin-bottom: 16px;
-    color: #cccccc; /* Light grey for paragraph text */
+   
 }
 
 
@@ -424,7 +424,7 @@ p {
 }
 
 nav button.active {
-    animation: flashing 1.5s infinite; /* Flashing animation applied */
+    animation: flashing 1.5s infinite; 
 }
 
 /*Design Styles*/
@@ -709,7 +709,7 @@ img.Image,.wireframe img, [aria-label="Initial Wireframes"] img {
 }
 
 .gallery-item img:hover {
-  transform: scale(1.05); /* Zoom effect on hover */
+  transform: scale(1.05); 
 }
 
 
@@ -723,7 +723,7 @@ img.Image,.wireframe img, [aria-label="Initial Wireframes"] img {
   height: 100%;
   overflow: auto;
   background-color: rgba(0,0,0,0.9);
-  transition: opacity 0.3s ease; /* Smooth transition for modal appearance */
+  transition: opacity 0.3s ease; 
 }
 
 .modal-content {

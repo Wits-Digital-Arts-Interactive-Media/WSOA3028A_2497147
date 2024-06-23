@@ -80,21 +80,20 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // Initial state
-var lastScrollTop = 0; // Tracks the last scroll position
-var navbar = document.querySelector('nav'); // Select the navbar
-
+var lastScrollTop = 0; 
+var navbar = document.querySelector('nav'); 
 window.addEventListener('scroll', function() {
     var currentScroll = window.pageYOffset || document.documentElement.scrollTop;
     
     if (currentScroll > lastScrollTop) {
         // Scroll Down
-        navbar.style.top = '-60px'; // Hide navbar on scroll down
+        navbar.style.top = '-60px';
     } else {
         // Scroll Up
-        navbar.style.top = '0'; // Show navbar on scroll up
+        navbar.style.top = '0'; 
     }
     
-    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // Reset to 0 on reaching top
+    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; 
 }, false);
 
 //Display active page
@@ -202,7 +201,8 @@ document.addEventListener('DOMContentLoaded', () => {
   document.addEventListener("DOMContentLoaded", function() {
     var video = document.getElementById('backgroundVideo');
     // Define both video sources
-    var sources = ["images/porsche-992-turbo-s-techart-moewalls-com.mp4", "images/solid-snake-metal-gear-solid-moewalls-com.mp4"];
+    var sources = ["images/porsche-992-turbo-s-techart-moewalls-com.mp4", 
+        "images/solid-snake-metal-gear-solid-moewalls-com.mp4"];
     var currentVideo = 0; 
 
     // Function to check if the video is in view and play or pause accordingly
