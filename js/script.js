@@ -11,7 +11,7 @@ const menuItems = [
     { name: 'Home', href: `${baseUrl}/index.html`, id: 'indexButton' },
 ];
 
-const navMenu = document.getElementById('nav-menu'); // Ensure this ID matches the ID of your navigation menu container in HTML
+const navMenu = document.getElementById('nav-menu'); 
 //
 menuItems.forEach(item => {
     const li = document.createElement('li');
@@ -24,7 +24,10 @@ menuItems.forEach(item => {
     navMenu.appendChild(li);
 });
 
-// Select all the buttons
+
+
+
+//Card Buttons Navigation
 const cardButtons = document.querySelectorAll('.card-button');
 
 // Add a 'click' event listener to each button
@@ -37,6 +40,7 @@ cardButtons.forEach(button => {
     window.location.href = page;
   });
 });
+
 
 
 //smooth scroll for navigation blogs 
@@ -59,6 +63,39 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+//NavBar adjustments
+document.addEventListener('DOMContentLoaded', function() {
+    var toggle = document.querySelector('.navbar-toggle');
+    toggle.addEventListener('click', function() {
+        this.classList.toggle('open');
+        
+        var menu = this.nextElementSibling;
+        if (menu.style.display === "flex") {
+            menu.style.display = "none";
+        } else {
+            menu.style.display = "flex";
+        }
+    });
+});
+
+// Initial state
+var lastScrollTop = 0; // Tracks the last scroll position
+var navbar = document.querySelector('nav'); // Select the navbar
+
+window.addEventListener('scroll', function() {
+    var currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+    
+    if (currentScroll > lastScrollTop) {
+        // Scroll Down
+        navbar.style.top = '-60px'; // Hide navbar on scroll down
+    } else {
+        // Scroll Up
+        navbar.style.top = '0'; // Show navbar on scroll up
+    }
+    
+    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // Reset to 0 on reaching top
+}, false);
 
 //Display active page
 
@@ -119,10 +156,6 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-document.querySelector('h1').addEventListener('click', function() {
-    let essayContent = 'This is the content of Essay2. It is loaded dynamically when the user clicks on the heading.';
-    document.querySelector('.essay2').textContent = essayContent;
-  });
 
 //Image Zoom Function
   document.addEventListener('DOMContentLoaded', function() {
@@ -165,4 +198,37 @@ document.querySelector('h1').addEventListener('click', function() {
     document.getElementById('imageModal').style.display = "none";
   }
 
-  
+  //backgroundvideo
+  document.addEventListener("DOMContentLoaded", function() {
+    var video = document.getElementById('backgroundVideo');
+    // Define both video sources
+    var sources = ["images/porsche-992-turbo-s-techart-moewalls-com.mp4", "images/solid-snake-metal-gear-solid-moewalls-com.mp4"];
+    var currentVideo = 0; 
+
+    // Function to check if the video is in view and play or pause accordingly
+    var checkVideoInView = function() {
+        var rect = video.getBoundingClientRect();
+        if (rect.top >= 0 && rect.bottom <= (window.innerHeight || document.documentElement.clientHeight)) {
+            if (video.paused) {
+                video.play();
+            }
+        } else {
+            video.pause();
+        }
+    };
+
+    // Switch to the next video when the current video ends
+    video.addEventListener('ended', function() {
+        currentVideo = (currentVideo + 1) % sources.length; 
+        video.src = sources[currentVideo];
+        video.load(); 
+        checkVideoInView(); 
+    }, false);
+
+ 
+    window.addEventListener('scroll', checkVideoInView);
+    window.addEventListener('resize', checkVideoInView);
+
+
+    checkVideoInView(); 
+});
