@@ -1,4 +1,3 @@
-
 //Navbar navigation
 const baseUrl = '/WSOA3028A_2497147';
 
@@ -12,11 +11,11 @@ const menuItems = [
 ];
 
 const navMenu = document.getElementById('nav-menu'); // Ensure this ID matches the ID of your navigation menu container in HTML
-//
+
 menuItems.forEach(item => {
     const li = document.createElement('li');
     const a = document.createElement('a');
-    a.href = item.href;
+    a.href = `${baseUrl}/${item.href}`; // Prefix href with baseUrl
     a.id = item.id;
     a.textContent = item.name;
 
