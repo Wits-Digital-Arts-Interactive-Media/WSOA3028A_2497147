@@ -433,7 +433,6 @@ nav button.active {
     width: 100px; 
     height: auto;
     flex: 0 0 auto; 
-    max-width: calc(50% - 10px);
 }
 
 /* Responsive design adjustments */
@@ -443,7 +442,7 @@ nav button.active {
     }
 }
 
-
+/* Responsive design for smaller screens (shows 1 image per row) */
 @media (max-width: 480px) {
     .wireframe img {
         max-width: calc(100% - 10px); 
@@ -471,41 +470,40 @@ nav button.active {
     margin-bottom: 20px; 
 }
 
-/*Navbars*/
+/* Navbar Container */
 nav {
     display: flex;
-    justify-content: center; 
+    justify-content: center;
+    padding: 10px 0;
+    background-color: #333; /* Example background color */
 }
 
-/* Navbar List Items */
+/* Navbar List */
 nav ul {
     list-style-type: none;
     padding: 0;
     margin: 0;
     display: flex;
-    justify-content: center
 }
 
+/* Navbar Items */
 nav li {
-    display: inline-block;
-    margin: 0 10px; 
+    margin: 0 15px; /* Adjusted spacing */
 }
 
 /* Navbar Links */
 nav a {
-    display: inline-block;
-    color: rgb(146, 146, 146); 
-    padding: 10px 20px;
+    display: block;
+    color: #f2f2f2; /* Lighter color for contrast */
+    padding: 10px 15px;
     text-decoration: none;
-    font-size: 17px;
-    transition: all 0.3s;
+    transition: color 0.3s, background-color 0.3s; /* Smooth transition for both color and background */
 }
 
 nav a:hover {
-  
-    color: #fff; 
-    font-size: 18px; 
-    font-weight: bold; 
+    color: #000; /* Darker text on hover */
+    background-color: #ddd; /* Light background on hover */
+    border-radius: 5px; /* Rounded corners on hover */
 }
 
 
@@ -538,5 +536,112 @@ nav a:hover {
         filter: blur(0);
     }
 }
+
+/*Image-Slider*/
+.slider-container {
+    padding: 2rem;
 }
 
+.slider-wrapper {
+    position: relative;
+    max-width: 48rem;
+    margin: 0 auto;
+}
+
+.slider {
+    display: flex;
+    aspect-ratio: 16 / 9;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    box-shadow: 0 1.5rem 3rem -0.75rem hsla(0, 0%, 0%, 0.25);
+    border-radius: 0.5rem;
+    -ms-overflow-style: none; /* Hide scrollbar IE and Edge */
+    scrollbar-width: none; /* Hide scrollbar Firefox */
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.slider::-webkit-scrollbar {
+    display: none;
+}
+
+.slider figure {
+    flex: 1 0 100%;
+    scroll-snap-align: start;
+    position: relative;
+    margin: 0; /* Remove default margin */
+}
+
+.slider img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0.5rem;
+}
+
+.slider figcaption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    padding: 0.5rem;
+    font-size: 1rem;
+    text-align: center;
+    border-bottom-left-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+}
+
+.slider-nav {
+    display: flex;
+    column-gap: 1rem;
+    position: absolute;
+    bottom: 1.25rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+.slider-nav a {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    background-color: #fff;
+    opacity: 0.75;
+    transition: opacity ease 250ms;
+}
+
+
+.slider-nav a:hover {
+    opacity: 1;
+}
+
+/*Links for Blogs*/
+.navigation {
+    margin-top: 20px;
+}
+
+.navigation a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: black;
+    color: white; 
+    text-decoration: none;
+    border-radius: 5px;
+    margin-right: 10px;
+    transition: background-color 0.3s, color 0.3s; 
+}
+
+.navigation a:hover {
+    background-color:white; 
+    color: black;  
+}
+
+.previous {
+    float: left;
+}
+
+.next {
+    float: right;
+}}
